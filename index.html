@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Anatomy Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Retain external libraries if needed -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/split-grid@1.0.10/dist/split-grid.min.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Code Formatter and Visualizer</h1>
+    <div class="view-controls">
+      <!-- Dark Mode Toggle Switch -->
+      <div class="toggle-container">
+        <input type="checkbox" id="themeToggle">
+        <label for="themeToggle" class="toggle-label" id="themeToggleLabel">Dark Mode</label>
+      </div>
+      <select id="viewMode" class="view-mode-selector">
+        <option value="split">Split View</option>
+        <option value="editor">Editor Only</option>
+        <option value="visualizer">Visualizer Only</option>
+        <option value="preview">Preview Only</option>
+      </select>
+      <!-- Output Toggle Switch: toggles between formatted view and live preview -->
+      <div class="toggle-container">
+        <input type="checkbox" id="viewToggle">
+        <label for="viewToggle" class="toggle-label" id="viewToggleLabel">Visual</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="error-message" id="errorMsg">Language mismatch detected!</div>
+
+  <main class="split-screen">
+    <!-- Editor Panel -->
+    <section class="editor-panel">
+      <div class="panel-header">
+        <div class="header-left">
+          <h2>Editor</h2>
+          <select id="language" class="language-selector">
+            <option value="auto">Auto-detect</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JavaScript</option>
+            <option value="combined">Combined</option>
+          </select>
+        </div>
+        <button onclick="clearEditor()">Clear</button>
+      </div>
+        <textarea id="code-input" placeholder="Enter your code here..." wrap="soft"></textarea>
+    </section>
+
+    <!-- Draggable Gutter -->
+    <div class="gutter-col"></div>
+
+    <!-- Output Container (holds Visualizer and Preview panels) -->
+    <div class="output-container">
+      <article class="visualizer-panel active">
+        <div class="panel-header">
+          <h2>Formatted Code</h2>
+          <button onclick="copyCode()">Copy</button>
+        </div>
+        <pre><code id="code-output"></code></pre>
+      </article>
+
+      <article class="preview-panel">
+        <div class="panel-header">
+          <h2>Preview</h2>
+          <button onclick="refreshPreview()">Refresh</button>
+        </div>
+        <iframe id="previewFrame"></iframe>
+      </article>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/split-grid@1.0.10/dist/split-grid.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-css.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
