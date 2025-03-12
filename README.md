@@ -2,8 +2,8 @@
 
 A real-time code formatting and visualization tool with syntax highlighting and live preview capabilities.
 
-![Screenshot](https://imgur.com/a/pk7Srmu) <!-- Dark Mode -->
-![Screenshot](https://imgur.com/x5NVomp) <!-- Light Mode -->
+![Screenshot](https://raw.githubusercontent.com/vakhaine/code-anatomy-visualizer/main/imgur.com/a/pk7Srmu) <!-- Dark Mode -->
+![Screenshot](https://raw.githubusercontent.com/vakhaine/code-anatomy-visualizer/main/imgur.com/x5NVomp) <!-- Light Mode -->
 
 
 ## Features
